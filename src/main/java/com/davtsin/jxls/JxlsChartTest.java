@@ -18,7 +18,7 @@ public class JxlsChartTest {
         DataHolder dataHolder = new DataHolder();
 
         try (InputStream is = JxlsChartTest.class.getResourceAsStream("chart-sheet.xls")) {
-            try (OutputStream os = new FileOutputStream("target/chart-sheet.xls")) {
+            try (OutputStream os = new FileOutputStream("target/chart-sheet-out.xls")) {
                 Context context = new Context();
                 context.putVar("dataHolder", dataHolder);
 
