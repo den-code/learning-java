@@ -19,7 +19,7 @@ import java.io.InputStream;
  * */
 
 public class TikaDemo {
-    private static final String filename = "demo.rtf";
+    private static final String filename = "demo.xml";
     private static Logger logger = LoggerFactory.getLogger(TikaDemo.class);
 
     public static void main(String[] args) throws IOException, TikaException {
@@ -39,19 +39,15 @@ public class TikaDemo {
         DocumentFormat documentFormat = DefaultDocumentFormatRegistry.getFormatByMediaType(mediaType);
 
         if (documentFormat == null) {
-            logger.warn("FAULT. No such media type in jodconverter document registry. " +
-                    "Try to define document format using local registry.");
+            logger.warn("FAULT. No such media type in jodconverter document registry. Try to define document format.");
             switch (mediaType) {
                 case "application/rtf":
                     documentFormat = DefaultDocumentFormatRegistry.RTF;
-                    logger.info("SUCCESS. Media type founded in local registry.");
                     break;
                 default:
-                    logger.warn("Media type not found. Set default document format: text/plain");
+                    logger.warn("FAULT. Media type not found. Set default document format: text/plain");
                     documentFormat = DefaultDocumentFormatRegistry.TXT;
             }
-        } else {
-            logger.info("SUCCESS. Media type defined correctly.");
         }
 
         logger.debug("Result document format: {}", documentFormat);
