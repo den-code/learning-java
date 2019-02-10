@@ -33,6 +33,21 @@
             <artifactId>jxls-poi</artifactId>
             <version>1.0.16</version>
         </dependency>
+
+        <!-- Apache Tika. Guess file type -->
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.20</version>
+        </dependency>
+
+        <!-- Document converter -->
+        <dependency>
+            <groupId>org.jodconverter</groupId>
+            <artifactId>jodconverter-core</artifactId>
+            <version>4.2.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
