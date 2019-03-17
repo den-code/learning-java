@@ -3,11 +3,11 @@ package com.davtsin.time;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 
-import static com.davtsin.time.TimeUtils.endOfDay;
-import static com.davtsin.time.TimeUtils.parseDateToLocalDateTime;
+import static com.davtsin.time.TimeUtils.*;
 
 public class TimeUtilsTest {
 
@@ -16,16 +16,23 @@ public class TimeUtilsTest {
 
     @Test
     public void formatTest() {
-        LocalDateTime localDateTime1 = parseDateToLocalDateTime(date);
-        LocalDateTime localDateTime2 = parseDateToLocalDateTime(date, endOfDay());
+
+        System.out.println(TimeUtils.parseDateToLocalDateTime(date));
+        System.out.println(TimeUtils.parseDateToLocalDateTime(date, LocalTime.MAX));
+
+
+        LocalDateTime localDateTime1 = parseDateOrDateTimeToLocalDateTime(date);
+        LocalDateTime localDateTime2 = parseDateOrDateTimeToLocalDateTime(date, endOfDay());
+        LocalDateTime localDateTime3 = parseDateOrDateTimeToLocalDateTime(date, timeOfDay(15, 45, 35));
         System.out.println(localDateTime1);
         System.out.println(localDateTime2);
+        System.out.println(localDateTime3);
     }
 
     @Test
     public void precompilledFormatter() {
         for (int i = 0; i < N; i++) {
-            parseDateToLocalDateTime(date);
+            parseDateOrDateTimeToLocalDateTime(date);
         }
     }
 
@@ -51,7 +58,7 @@ public class TimeUtilsTest {
     @Test
     public void multithreadingParseWithOneFormatter() {
         for (int i = 0; i < N; i++) {
-            new Thread(() -> parseDateToLocalDateTime(date)).start();
+            new Thread(() -> parseDateOrDateTimeToLocalDateTime(date)).start();
         }
     }
 
