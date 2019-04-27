@@ -1,4 +1,4 @@
-package com.davtsin.generics;
+package com.davtsin.generics.genmethod;
 
 class Pair<K, V> {
     K key;

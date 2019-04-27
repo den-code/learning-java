@@ -1,4 +1,4 @@
-package com.davtsin.generics.repeat;
+package com.davtsin.generics.geninterface;
 
 
 interface Pair<K, V> {

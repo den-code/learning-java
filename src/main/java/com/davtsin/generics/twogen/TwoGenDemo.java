@@ -1,4 +1,4 @@
-package com.davtsin.generics.repeat;
+package com.davtsin.generics.twogen;
 
 class TwoGen<T, V> {
     T ob1;

@@ -1,7 +1,6 @@
 package com.davtsin.generics.repeat;
 
 class Gen<T> {
-
     T ob;
 
     Gen(T o) {
@@ -13,59 +12,27 @@ class Gen<T> {
     }
 
     void showType() {
-        System.out.println("Типом является: " + ob.getClass().getName());
+        System.out.println("Типом T является " + ob.getClass().getName());
     }
-
-}
-
-class GenObj {
-
-    Object ob;
-
-    GenObj(Object o) {
-        ob = o;
-    }
-
-    Object getOb() {
-        return ob;
-    }
-
-    void showType() {
-        System.out.println("Типом является: " + ob.getClass().getName());
-    }
-
 }
 
 public class GenDemo {
     public static void main(String[] args) {
-        Gen<String> gen = new Gen<>("Тест");
 
-        gen.showType();
+        Gen<Integer> iOb;
 
-        String value = gen.getOb();
+        iOb = new Gen<Integer>(88);
 
-        System.out.println(value);
+        iOb.showType();
 
+        int v = iOb.getOb();
+        System.out.println("Значение: " + v);
+        System.out.println();
 
+        Gen<String> strOb = new Gen<String> ("Тест обобщений");
+        strOb.showType();
 
-        System.out.println("---");
-
-        GenObj genObj = new GenObj("Hello");
-
-        genObj.showType();
-
-        value = (String) genObj.getOb();
-
-        System.out.println(value);
-
-
-
-
-        System.out.println("---");
-
-        Object object = "Hello";
-        System.out.println(object.getClass().getName());
-        boolean bool = object instanceof String;
-        System.out.println(bool);
+        String str = strOb.getOb();
+        System.out.println("Значение: " + str);
     }
 }
