@@ -1,4 +1,4 @@
-package com.davtsin.literals;
+package com.davtsin.lang;
 
 public class Literals {
     public static void main(String[] args) {
