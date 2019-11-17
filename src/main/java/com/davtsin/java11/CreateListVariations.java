@@ -36,7 +36,7 @@ public class CreateListVariations {
         // with List.of list creation - runtime error when modify
         var list4 = List.of(1, 2, 3);
         // UnsupportedOperationException
-//        modifyTest(list4);
+        // modifyTest(list4);
     }
 
     private static void modifyTest(List<Integer> list) {
