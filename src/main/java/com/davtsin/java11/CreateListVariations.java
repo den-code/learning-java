@@ -28,6 +28,15 @@ public class CreateListVariations {
         // stream list creation
         var list2 = Stream.of(1, 2, 3).collect(Collectors.toList());
         modifyTest(list2);
+
+        // with List.of in constructor list creation
+        var list3 = new ArrayList<>(List.of(1, 2, 3));
+        modifyTest(list3);
+
+        // with List.of list creation - runtime error when modify
+        var list4 = List.of(1, 2, 3);
+        // UnsupportedOperationException
+//        modifyTest(list4);
     }
 
     private static void modifyTest(List<Integer> list) {
