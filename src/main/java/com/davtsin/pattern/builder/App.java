@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class App {
-    private static Logger logger = LoggerFactory.getLogger(com.davtsin.pattern.abstractfactory.App.class);
+    private static Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
         var thief = new Hero.Builder("Thief", Profession.THIEF)
